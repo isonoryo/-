@@ -75,6 +75,11 @@ margin-bottom: 0px
   display: inline-block;
   margin-left: 60px;
 }
+
+.function-image2{
+  width: 70px;
+  height: 70px;
+}
 /* ここまでがfunction部分の実装 */
 
 .footer {
