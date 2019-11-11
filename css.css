@@ -1,0 +1,27 @@
+.A{
+width: 200px;
+height: 400px;
+position: absolute;
+background-color: red;}
+
+.B{
+width: 400px;
+height: 200px;
+position: absolute;
+top: 400px;
+background-color: yellow;}
+
+.C{
+width: 200px;
+height: 400px;
+position: absolute;
+right:  0;
+top: 200px;
+background-color: green;}
+
+.D{
+width: 400px;
+height: 200px;
+position: absolute;
+left:200px;
+background-color: black;}
