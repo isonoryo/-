@@ -5,7 +5,7 @@
 class Player
   def hand
     # コンソールを入力待ち状態にし、プレイヤーがコンソールから打ち込んだ値を出力する処理のメソッドの処理をこの中に作成する
-    puts "[0]:グー\n[1]:チョキ\n[2]:パー"
+    puts "[1]:グー\n[2]:チョキ\n[3]:パー"
     player_hand = gets.to_i
   end
 end
@@ -13,7 +13,7 @@ end
 class Enemy
   def hand
     # グー、チョキ、パーの値をランダムに出力するメソッドの処理をこの中に作成する
-    enemy_hand = rand(3)
+    enemy_hand = rand(1..3)
   end
 end
 
@@ -22,17 +22,19 @@ class Janken
     # プレイヤーが打ち込んだ値と、Enemyがランダムに出した値でじゃんけんをさせ、その結果をコンソール上に出力するメソッドをこの中に作成する
     # その際、あいこもしくはグー、チョキ、パー以外の値入力時には、もう一度ジャンケンをする
     # 相手がグー、チョキ、パーのうち、何を出したのかも表示させる
-    jankens = ["グー","チョキ","パー"]
+    jankens = ["","グー","チョキ","パー"]
 
-    puts "あなたが出したのは👉#{jankens[player_hand]},敵が出したのは👉#{jankens[enemy_hand]}" #自分と敵の手を表示
-    if (player_hand != 0 && player_hand != 1 && player_hand != 2)
-      puts "０〜２を選んでください。"
+
+
+    if (player_hand != 1 && player_hand != 2 && player_hand != 3)
+      puts "1〜3を選んでください。"
       janken = Janken.new
       player = Player.new
       enemy = Enemy.new
       janken.pon(player.hand, enemy.hand)
 
     elsif (player_hand == enemy_hand) #あいこ
+      puts "あなたが出したのは👉#{jankens[player_hand]},敵が出したのは👉#{jankens[enemy_hand]}" #自分と敵の手を表示
       puts "あいこで"
       janken = Janken.new
       player = Player.new
@@ -40,10 +42,12 @@ class Janken
       janken.pon(player.hand, enemy.hand)
 
     elsif
-     (player_hand == 0 && enemy_hand == 1) || (player_hand == 1 && enemy_hand == 2) ||
-     (player_hand == 2 && enemy_hand == 0) #勝ち
+     (player_hand == 1 && enemy_hand == 2) || (player_hand == 2 && enemy_hand == 3) ||
+     (player_hand == 3 && enemy_hand == 1) #勝ち
+     puts "あなたが出したのは👉#{jankens[player_hand]},敵が出したのは👉#{jankens[enemy_hand]}" #自分と敵の手を表示
      puts "YOU　WIN！！"
     else
+      puts "あなたが出したのは👉#{jankens[player_hand]},敵が出したのは👉#{jankens[enemy_hand]}" #自分と敵の手を表示
      puts "YOU LOSE......"
       end
     end
